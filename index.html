@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nestbod Properties</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #000;
+      --text-color: #fff;
+      --accent-color: #fff;
+    }
+
+    body.light-mode {
+      --bg-color: #fff;
+      --text-color: #000;
+      --accent-color: #000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    header {
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 300;
+    }
+    .toggle-mode {
+      background: none;
+      border: 1px solid var(--text-color);
+      padding: 0.5rem 1rem;
+      color: var(--text-color);
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-left: 2rem;
+      border-radius: 4px;
+    }
+    .hero {
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
+    }
+    .slideshow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slideshow img.active {
+      opacity: 1;
+    }
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .hero-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      max-width: 800px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+    }
+    section {
+      padding: 6rem 4rem;
+    }
+    .intro, .details {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .intro h3, .details h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
+    .call-to-book {
+      text-align: center;
+      padding: 6rem 2rem;
+      background-color: #111;
+    }
+    .call-to-book h3 {
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1rem;
+    }
+    .call-to-book p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .call-to-book a {
+      display: inline-block;
+      color: #000;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #999;
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nestbod Properties</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#book">Book</a>
+      <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="slideshow">
+      <img src="https://via.placeholder.com/1800x1000?text=Luxury+Interior+1" class="active" alt="Slide 1">
+      <img src="https://via.placeholder.com/1800x1000?text=Luxury+Interior+2" alt="Slide 2">
+      <img src="https://via.placeholder.com/1800x1000?text=Luxury+Interior+3" alt="Slide 3">
+    </div>
+    <div class="hero-text">
+      <h2>Experience Timeless Elegance in the Heart of Kensington, London</h2>
+    </div>
+  </div>
+
+  <section class="intro" id="about">
+    <h3>Where Modern Luxury Meets Classic Charm</h3>
+    <p>
+      Welcome to Nestbod Properties — a stunning, high-end Airbnb residence designed for guests who appreciate the finer things in life. Tucked away in one of London’s most exclusive neighborhoods, this sanctuary offers serenity, sophistication, and seamless access to the city's cultural gems.
+    </p>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <img src="images/livingroom3.jpg" alt="Spacious living room">
+    <img src="images/bedroom 2.jpg" alt="Elegant bedroom">
+    <img src="images/washroom.jpg" alt="Luxurious bathroom">
+    <img src="images/living room.jpg" alt="Private patio view">
+  </section>
+
+  <section class="details">
+    <h3>Unrivaled Amenities</h3>
+    <p>
+      From bespoke Italian furnishings and a king-sized memory foam bed to underfloor heating and a designer kitchen, every element has been curated for an elite experience. Complimentary champagne upon arrival and 24/7 concierge service available.
+    </p>
+  </section>
+
+  <section class="call-to-book" id="book">
+    <h3>Book Your Stay</h3>
+    <p>Availability is limited. Secure your luxurious escape today.</p>
+    <a href="tel:+447000000000">Call Now to Reserve: +44 7000 000000</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Nestbod Properties. All Rights Reserved.
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    const slides = document.querySelectorAll('.slideshow img');
+    let currentSlide = 0;
+
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 5000);
+  </script>
+</body>
+</html>
